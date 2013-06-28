@@ -1,0 +1,111 @@
+@(products: List[Query],currentCategory: String,currentManufacturer: String)
+@import helper._
+
+
+<html>
+<head>
+    <title>ITstuff</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/bootstrap.css")">
+    <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+</head>
+<body>
+<div class="container">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container" style="width: auto;">
+                <a class="brand">IT Stuff</a>
+                <div class="nav-collapse">
+                    <ul class="nav">
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/products">Find</a></li>
+                        <li><a href="/addproducts">Add</a></li>
+                        <li><a href="#">About</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                    <form class="navbar-search pull-right" action="">
+                        <input type="text" class="search-query span3" placeholder="Search">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="span10 offset1">
+            @for(product <- products){
+                @if(currentCategory == product.getCategory()){
+                    @if(currentManufacturer == product.getManufacturer()){
+                        <ul style="list-style-type: none;">
+                            <li><b style="font-size: 20px;">@product.getDescription()</b></li>
+                            <li><span style="font-size: 14px;">@product.getCategory()</span></li>
+                            <li><span style="font-size: 14px;">@product.getManufacturer()</span></li>
+                            <li><b style="font-size: 14px;">@product.getPrice()</b></li>
+                            <li><a>@product.getLink()</a></li>
+                            <li>
+                                <div style="text-align: center;padding: 6px;">
+                                    <button class="btn btn-small" id="moreInfo@product.getNumber()">More info</button>
+                                </div>
+                            </li>
+                            <div style="display: none;" id="moreInfoPanel@product.getNumber()">
+                                @for(info <- product.getMoreInfoList()){
+                                    <li><span style="font-size: 14px;">@info</span></li>
+                                }
+                            </div>
+                            <hr>
+                        </ul>
+                    }
+                }
+            }
+        </div>
+    </div>
+</div>
+<script>
+    $('#moreInfo1').click(function(){
+        $('#moreInfoPanel1').slideToggle('fast');
+        $(this).text($(this).text() == 'More info' ? 'Less info' : 'More info');
+    });
+    $('#moreInfo2').click(function(){
+        $('#moreInfoPanel2').slideToggle('fast');
+        $(this).text($(this).text() == 'More info' ? 'Less info' : 'More info');
+    });
+    $('#moreInfo3').click(function(){
+        $('#moreInfoPanel3').slideToggle('fast');
+        $(this).text($(this).text() == 'More info' ? 'Less info' : 'More info');
+    });
+    $('#moreInfo4').click(function(){
+        $('#moreInfoPanel4').slideToggle('fast');
+        $(this).text($(this).text() == 'More info' ? 'Less info' : 'More info');
+    });
+    $('#moreInfo5').click(function(){
+        $('#moreInfoPanel5').slideToggle('fast');
+        $(this).text($(this).text() == 'More info' ? 'Less info' : 'More info');
+    });
+    $('#moreInfo6').click(function(){
+        $('#moreInfoPanel6').slideToggle('fast');
+        $(this).text($(this).text() == 'More info' ? 'Less info' : 'More info');
+    });
+    $('#moreInfo7').click(function(){
+        $('#moreInfoPanel7').slideToggle('fast');
+        $(this).text($(this).text() == 'More info' ? 'Less info' : 'More info');
+    });
+    $('#moreInfo8').click(function(){
+        $('#moreInfoPanel8').slideToggle('fast');
+        $(this).text($(this).text() == 'More info' ? 'Less info' : 'More info');
+    });
+    $('#moreInfo9').click(function(){
+        $('#moreInfoPanel9').slideToggle('fast');
+        $(this).text($(this).text() == 'More info' ? 'Less info' : 'More info');
+    });
+    $('#moreInfo10').click(function(){
+        $('#moreInfoPanel10').slideToggle('fast');
+        $(this).text($(this).text() == 'More info' ? 'Less info' : 'More info');
+    });
+    $('#moreInfo11').click(function(){
+        $('#moreInfoPanel11').slideToggle('fast');
+        $(this).text($(this).text() == 'More info' ? 'Less info' : 'More info');
+    });
+</script>
+</body>
+</html>
+

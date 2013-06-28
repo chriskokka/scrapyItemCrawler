@@ -1,0 +1,27 @@
+scrapyItemCrawler
+
+
+
+This is a simple application written using Play Framework 2.1.
+In the background I am using a scrapy crawler to crawl an it 
+products online-shop. The user can choose a product based on
+the manufacturer, price of the product and category. As a result
+a query will be sent to solr and 10 first products will be displayed.
+All the products will show the short description of the product, the 
+manufacturer, the price and also the link to the shop.
+
+Everything on the Play Framework side is written in Java.
+For parsing I used the simple SAXParser that is built into
+Java. 
+The crawler that crawls the shop is written using scrapy 
+and naturally Python.
+For storing the product data I used Solr 4.3.0
+I used 2 cores in solr and added to project directory
+only both schemas needed for these cores.
+(Hint: to make another core, simply copy the collection1
+folder that is in the example project. Change the schema, 
+add the name of the collection to the solr.xml file like 
+the first one has been added and run solr via start.jar and that is it.)
+
+
+Author: Chris Kokka 2013.
